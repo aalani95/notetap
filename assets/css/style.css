@@ -1,0 +1,391 @@
+/* global */
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --hs-color: #292A2C;
+    --text-color: #464646;
+    --primary-color: #F08519;
+    --secondary-color: #7ABF63;
+    --offwhite: #F2F6FA;
+    --lightgrey: #FBFBFB;
+    --borders: #F1F1F1;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+html {
+    overflow: auto;
+}
+
+.content_width {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* fonts / colors / buttons */
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.7;
+    font-size: .97rem;
+    letter-spacing: .22px;
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    color: var(--hs-color);
+}
+
+h1 {
+    font-size: 1.4rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-size: 1.15rem;
+}
+
+h6 {
+    font-size: 1.1rem;
+}
+
+a.primary_btn {
+    color: var(--white);
+    background-color: var(--primary-color);
+    text-decoration: none;
+    padding: 8px 24px;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.icon_btn {
+    display: inline-block;
+}
+
+.icon_btn_container {
+    display: flex;
+    align-items: center;
+}
+
+.icon_btn_container .material-icons {
+    font-size: 22px;
+    margin-left: 5px;
+}
+
+/* header */
+
+header {
+    border-bottom: 1px solid #eee;
+}
+
+.header_container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.logo {
+    width: 150px;
+}
+
+/* add tap form */
+
+.add_tap_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 0 0;
+}
+
+form.add_tap_form {
+    background-color: var(--lightgrey);
+    border: 1px solid var(--borders);
+    border-radius: 3px;
+}
+
+.add_tap_form input#add_title, 
+.add_tap_form textarea#add_content {
+    width: 100%;
+    padding: 1rem;
+    background-color: transparent;
+    border: none;
+    transition: box-shadow .2s;
+}
+
+.add_tap_form input#add_title:hover {
+    box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.05);
+}
+
+.add_tap_form textarea#add_content {
+    resize: none;
+    min-height: 150px;
+    border-top: 1px solid var(--borders);
+}
+
+.add_tap_footer {
+    padding: 1rem;
+    text-align: right;
+    border-top: 1px solid var(--borders);
+}
+
+#add_tap_toggle {
+    display: none;
+}
+
+/* tap process notifications */
+
+/* publish */
+.process_tap_noti {
+    margin-top: 1.6em;
+}
+
+.process_tap_success,
+.process_tap_error {
+    display: block;
+    padding: .5em 1em;
+    border-radius: 4px;
+    border: 1px solid;
+    animation: proc_noti_anmi 0s ease-in 5s forwards;
+}
+
+.process_tap_success {
+    color: #02850d;
+    background-color: #d3f2d3;
+    border-color: #abd9ab;
+}
+
+.process_tap_error {
+    color: #850202;
+    background-color: #f2d3d3;
+    border-color: #d9abab;
+}
+
+@keyframes proc_noti_anmi {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+        padding: 0;
+        border: 0;
+    }
+}
+
+/* delete */
+.tap_deleted_noti {
+    padding: 1.6em 2em;
+    position: fixed;
+    bottom: -90.66px;
+    border-top: 1px solid var(--borders);
+    background-color: var(--white);
+    width: 100%;
+    box-shadow: 0px -5px 12px 0px rgba(0,0,0,0.15);
+    animation: deleteanmi 5s linear;
+}
+
+.delete_tap_success,
+.delete_tap_error {
+    display: flex;
+    align-items: center;
+    font-size: 16.5px;
+}
+
+.delete_tap_success .material-icons,
+.delete_tap_error .material-icons {
+    margin-right: 7px;
+}
+
+.delete_tap_success {
+    color: #02850d;
+}
+
+.delete_tap_error {
+    color: #850202;
+}
+
+@keyframes deleteanmi {
+    5% {bottom: 0px;}
+    95% {bottom: 0px;}
+    100% {bottom: -90.66px;}
+}
+
+/* taps */
+
+.taps_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 0;
+}
+
+.tap {
+    width: 100%;
+    margin: 1rem 0;
+    background-color: var(--lightgrey);
+    border: 1px solid var(--borders);
+    border-radius: 3px;
+}
+
+.tap_head, .tap_mid, .tap_footer {
+    padding: 1rem;
+    position: relative;
+}
+
+.tap_mid {
+    padding-bottom: 0;
+}
+
+.tap_head {
+    border-bottom: 1px solid var(--borders);
+}
+
+.tap_head h2 {
+    font-size: 1.05rem;
+}
+
+.tap_content_full {
+    display: none;
+}
+
+.tap_footer {
+    border-top: 1px solid var(--borders);
+}
+
+.tap_footer p {
+    color: #8d8d8d;
+    font-size: .9rem;
+}
+
+/* tap popup */
+
+.tap_popup {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .8);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    align-items: center;
+}
+
+.tap_content {
+    max-height: 85vh;
+    overflow: hidden;
+    padding-bottom: 1rem;
+}
+
+#tap_popup_content {
+    max-height: 50%;
+    overflow-y: scroll;
+    position: relative;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+#tap_popup_content::-webkit-scrollbar {
+    display: none;
+}
+
+#tap_content_scroll {
+    background-image: linear-gradient( 180deg, rgba(0, 0, 0, 0) 60%, rgba(255, 255, 255, .7) 0%);
+    z-index: 2;
+    transition: opacity .4s;
+    opacity: 1;
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+}
+
+.tap_mid:hover #tap_content_scroll {
+    opacity: 0;
+}
+
+.tap_popup_handles {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.tap_popup_handle {
+    background-color: var(--lightgrey);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    border: 1px solid var(--borders);
+}
+
+/* edit notetap form */
+
+form.edit_tap_form {
+    background-color: var(--lightgrey);
+    border: 1px solid var(--borders);
+    border-radius: 3px;
+    margin: 1rem 0;
+    display: none;
+}
+
+.edit_tap_form input#edit_title, 
+.edit_tap_form textarea#edit_content {
+    width: 100%;
+    padding: 1rem;
+    background-color: transparent;
+    border: none;
+    transition: box-shadow .2s;
+}
+
+.edit_tap_form textarea#edit_content {
+    resize: none;
+    min-height: 350px;
+    border-top: 1px solid var(--borders);
+}
+
+.edit_tap_footer {
+    padding: 1rem;
+    text-align: right;
+    border-top: 1px solid var(--borders);
+}
+
+/* footer */
+
+footer {
+    border-top: 1px solid #eee;
+}
+
+.footer_container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}

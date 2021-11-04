@@ -1,2 +1,2 @@
 # notetap
- Notes taking application
+ Notes taking application with php, js and mysql
